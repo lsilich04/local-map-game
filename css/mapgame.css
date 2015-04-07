@@ -1,0 +1,16 @@
+@import url(http://fonts.googleapis.com/css?family=Arimo);
+
+body {
+	font-family: 'arimo', sans-serif;
+	margin: 40px;
+	color: #333;
+	font-size: 14px;
+}
+
+.ui-selectmenu-text, .ui-menu-item {
+	font-size: 12px;
+}
+
+div {
+	margin: 10px;
+}
