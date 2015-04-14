@@ -14,3 +14,9 @@ body {
 div {
 	margin: 10px;
 }
+
+#googlesrc {
+	position:fixed;
+	right:0;
+	bottom:0;
+}
