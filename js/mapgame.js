@@ -3,9 +3,7 @@
 $(document).ready(function () {
 
 	// establishing jqueryui elements
-	$( ".uiselectmenu" ).selectmenu();
-	$( ".uibutton" ).button();
-	$( ".ui-dialog").dialog({
+	$( ".dialog").dialog({
 		buttons: {
 				"Let's Go!": function () {
 					$(this).dialog("close");
@@ -23,3 +21,4 @@ function startGame () {
 	// put some gmaps stuff here probably?
 	console.log("Check!");
 }
+

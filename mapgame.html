@@ -3,6 +3,7 @@
 
 	<head>
 		<title>Place Map Game</title>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/start/jquery-ui.css" />
@@ -21,15 +22,17 @@
 		<div id="gamearea">
 			<div id="output">Where is...?</div>
 	
-			<div id="mapcanvas">
+			<div id="map-canvas">
 	
 			</div>
 		</div>
 		
 		<div id="googlesrc"><img src="images/powered-by-google-on-white.png" /></div>
 		
-		<div id="dialogbox" class="ui-dialog" title="Where are you from?">
-			<input type="text" name="location" id="location" value="Iowa City, IA" />
+		<div id="dialogbox" class="dialog" title="Where are you from?">
+			<form>
+				<input type="text" name="location" id="location" value="Iowa City, IA" />
+			</form>
 		</div>
 	
 	</body>
