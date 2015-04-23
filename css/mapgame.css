@@ -15,8 +15,20 @@ div {
 	margin: 10px;
 }
 
-#location {
+h1 {
+	font-weight:700;
+	font-size: 60px;
+	color: #1583B5;
 }
+
+input {
+	padding: 5px;	
+}
+
+#restart {
+	margin: 10px;
+}
+
 
 #gamearea, #output {
 	border-radius: 5px;
