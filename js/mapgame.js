@@ -66,11 +66,12 @@ function createMarker(place) {
     position: place.geometry.location,
     icon: {
       // Star
-      path: 'M 0,-24 6,-7 24,-7 10,4 15,21 0,11 -15,21 -10,4 -24,-7 -6,-7 z',
-      fillColor: '#ffff00',
+      //path: 'M 0,-24 6,-7 24,-7 10,4 15,21 0,11 -15,21 -10,4 -24,-7 -6,-7 z',
+      path: 'M 10, 10 m -20, 0 a 20,20 0 1,0 40,0 a 20,20 0 1,0 -40,0',
+	  fillColor: '#7CC2DD',
       fillOpacity: 1,
       scale: 1/4,
-      strokeColor: '#bd8d2c',
+      strokeColor: '#1583B5',
       strokeWeight: 1 
 	  // url: "./images/circle.png"
     }
