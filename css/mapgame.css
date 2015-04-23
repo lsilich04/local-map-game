@@ -3,6 +3,7 @@
 body {
 	font-family: 'arimo', sans-serif;
 	margin: 40px;
+	background-color: #7CC2DD;
 	color: #333;
 	font-size: 14px;
 }
@@ -18,7 +19,7 @@ div {
 h1 {
 	font-weight:700;
 	font-size: 60px;
-	color: #1583B5;
+	color: #247999;
 }
 
 input {
@@ -31,6 +32,7 @@ input {
 
 
 #gamearea, #output {
+	background-color: #fff;
 	border-radius: 5px;
 	border: 1px solid rgb(166, 201, 226);
 	margin: 10px; padding: 10px;
