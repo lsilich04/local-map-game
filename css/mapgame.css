@@ -12,10 +12,6 @@ body {
 	font-size: 12px;
 }
 
-div {
-	margin: 10px;
-}
-
 h1 {
 	font-weight:700;
 	font-size: 45px;
@@ -30,6 +26,9 @@ input {
 	margin: 10px;
 }
 
+#output {
+	margin: 10px;
+}
 
 #gamearea, #output {
 	background-color: #fff;
