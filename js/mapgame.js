@@ -25,8 +25,8 @@ function startGame () {
 var map;
 function initialize() {
   var mapOptions = {
-    zoom: 8,
-    center: new google.maps.LatLng(-34.397, 150.644)
+    zoom: 14,
+    center: new google.maps.LatLng(41.6564248,-91.5332455)
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
