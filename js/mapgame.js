@@ -11,25 +11,82 @@ $(document).ready(function () {
 				}
 		},
 	});
+	$(".button").button();
 	
 	// actual actions
 	$("#dialogbox").dialog("open");	
+	$("#restart").click(function () {
+		$("#dialogbox").dialog("open");
+	});
+	
 });
 
 function startGame () {
-	// called from the dialog close button!
-	// put some gmaps stuff here probably?
-	console.log("Check!");
+	performSearch();
 }
 
 var map;
+var infoWindow;
+var service;
+
 function initialize() {
-  var mapOptions = {
-    zoom: 14,
-    center: new google.maps.LatLng(41.6564248,-91.5332455)
+  map = new google.maps.Map(document.getElementById('map-canvas'), {
+    zoom: 16,
+    center: new google.maps.LatLng(41.6564208,-91.5332455)
+  });
+
+  infoWindow = new google.maps.InfoWindow();
+  service = new google.maps.places.PlacesService(map);
+
+  //google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
+}
+
+function performSearch() {
+  var searchType = $("#location").val();
+  var request = {
+    bounds: map.getBounds(),
+    keyword: searchType
   };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+  service.radarSearch(request, callback);
+}
+
+function callback(results, status) {
+  if (status != google.maps.places.PlacesServiceStatus.OK) {
+    alert(status);
+    return;
+  }
+  for (var i = 0, result; result = results[i]; i++) {
+    createMarker(result);
+  }
+}
+
+function createMarker(place) {
+  var marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location,
+    icon: {
+      // Star
+      path: 'M 0,-24 6,-7 24,-7 10,4 15,21 0,11 -15,21 -10,4 -24,-7 -6,-7 z',
+      fillColor: '#ffff00',
+      fillOpacity: 1,
+      scale: 1/4,
+      strokeColor: '#bd8d2c',
+      strokeWeight: 1 
+	  // url: "./images/circle.png"
+    }
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+   service.getDetails(place, function(result, status) {
+      if (status != google.maps.places.PlacesServiceStatus.OK) {
+        alert(status);
+        return;
+      }
+      infoWindow.setContent(result.name);
+      infoWindow.open(map, marker);
+	  
+    }); 
+  });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
