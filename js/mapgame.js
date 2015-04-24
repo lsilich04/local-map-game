@@ -16,6 +16,7 @@ $(document).ready(function () {
 	// actual actions
 	$("#dialogbox").dialog("open");	
 	$("#restart").click(function () {
+    initialize();
 		$("#dialogbox").dialog("open");
 	});
 	
