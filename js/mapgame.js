@@ -84,7 +84,14 @@ function createMarker(place) {
         alert(status);
         return;
       }
+      var guess= document.getElementById('guess');
       infoWindow.setContent(result.name);
+      if(result.name!=guess.value){
+        alert('oh, you are so wrong.');
+      }
+      if(result.name==guess.value){
+        alert('so proud. you right');
+      }
       infoWindow.open(map, marker);
 	  
     }); 
