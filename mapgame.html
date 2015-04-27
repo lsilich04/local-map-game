@@ -20,14 +20,26 @@
 		</center>
 	
 		<div id="gamearea">
-			<div id="output">Where is...?</div>
+			<div id="output">
+				Enter your guess:<input type="text" id="guess">
+				<span id="right">&#x2713; Nice job!</span>
+				<span id="wrong">&#x2715; Not quite!</span>
+				<span id="charlength"> You need to enter at least four characters.</span>
+			</div>
 	
 			<div id="map-canvas">
 	
 			</div>
 			
 				<button id="restart" class="button">Restart Game</button>
-				Enter your guess:<input type=text id="guess">
+				<div id="scorer">Score: 0/0</div>
+				<div id="difficulty"> Difficulty: <span id="stars">&#x2605;</span></div>
+				
+				<div id="hpwrap">
+					<div id="hpbar">
+						<div id="hp"></div>
+					</div>
+				</div>
 				
 		</div>
 		
@@ -35,9 +47,12 @@
 		
 		<div id="dialogbox" class="dialog" title="What kind of places?">
 			<form>
-				<input type="text" name="location" id="location" value="restaurant" />
+				<input type="text" name="location" id="location" value="pizza" />
 			</form>
 		</div>
+		
+		<div id="dialogloser" title="You Lose">Five strikes and you're out!</div>
+		<div id="dialogwinner" title="You Win">Congratulations! You're a winner!</div>
 	
 	</body>
 </html>
