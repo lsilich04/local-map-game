@@ -36,8 +36,22 @@ $(document).ready(function () {
 	$("#restart").click(function () {
 		restart();
 	});
+	$("#hints").click(function(){
+		showHints();
+	});
 
 });
+
+function showHints(){
+	map.setOptions({styles:
+			{
+				elementType: 'labels',
+				stylers: [
+					{visibility: 'on'}
+				]
+			}
+		})
+}
 
 function restart () {
 	initialize();
