@@ -156,6 +156,7 @@ function createMarker(place) {
 			score -= 20;
 			wrong++;
 			$("#wrong").css("opacity", "1");
+			$("#wrong").html("The Answer is: "+result.name.toLowerCase());
 			setTimeout(function() { $("#wrong").css("opacity", "0"); }, 2000);
 			$("#hp").css("width", score + "%");
 			if (score < 1) {
