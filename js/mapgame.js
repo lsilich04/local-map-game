@@ -37,20 +37,63 @@ $(document).ready(function () {
 		restart();
 	});
 	$("#hints").click(function(){
-		showHints();
+		if ($("#hints").hasClass("pressed")) {
+			removeHints();
+			$("#hints").removeClass("pressed");
+			document.getElementById("hints").firstChild.innerHTML = 'Show Hints';
+		} else {
+			showHints();
+			$("#hints").addClass("pressed");
+			document.getElementById("hints").firstChild.innerHTML = 'Hide Hints';
+		}
 	});
 
 });
 
 function showHints(){
-	map.setOptions({styles:
+	map.setOptions(
+		{styles:[
+			{
+				stylers: {visibility: 'simplified'}
+			},
 			{
 				elementType: 'labels',
 				stylers: [
 					{visibility: 'on'}
 				]
+			},
+			{
+				featureType: 'road',
+				elementType: 'labels',
+				stylers: [
+					{visibility: 'on'}
+				]
 			}
-		})
+		]
+	});
+}
+
+function removeHints(){
+	map.setOptions(
+		{styles: [
+			{
+				stylers: {visibility: 'simplified'}
+			},
+			{
+				elementType: 'labels',
+				stylers: [
+					{visibility: 'off'}
+				]
+			},
+			{
+				featureType: 'road',
+				elementType: 'labels',
+				stylers: [
+					{visibility: 'on'}
+				]
+			}
+		]
+	});
 }
 
 function restart () {
@@ -170,7 +213,7 @@ function createMarker(place) {
 			score -= 20;
 			wrong++;
 			$("#wrong").css("opacity", "1");
-			$("#wrong").html("The Answer is: "+result.name.toLowerCase());
+			$("#wrong").html("The Answer is: "+result.name);
 			setTimeout(function() { $("#wrong").css("opacity", "0"); }, 2000);
 			$("#hp").css("width", score + "%");
 			if (score < 1) {

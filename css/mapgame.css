@@ -39,6 +39,10 @@ input {
 	margin: 10px; padding: 10px;
 }
 
+.pressed {
+	color: #FFFF00;
+}
+
 #output {
 	padding-left: 20px;
 }
