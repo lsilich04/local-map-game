@@ -145,12 +145,12 @@ function initialize() {
 	
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
-		mapOpts.center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
 		}, function() {
 			handleNoGeolocation(true);
 		});
 	} else {
-    // Browser doesn't support Geolocation
+		// Browser doesn't support Geolocation
 		handleNoGeolocation(false);
 	}
   
