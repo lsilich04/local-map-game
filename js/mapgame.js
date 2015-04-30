@@ -3,6 +3,8 @@ var score = 100;
 var correct = 0;
 var total = 0;
 var wrong = 0;
+var x=41.6564208;
+var y=-91.5332455;
 
 $(document).ready(function () {
 	// establishing jqueryui elements
@@ -122,7 +124,7 @@ var str = "";
 function initialize() {
 	mapOpts = {
 		zoom: 16,
-		center: new google.maps.LatLng(41.6564208,-91.5332455),
+		center: new google.maps.LatLng(x,y),
 		styles : [
 			{
 				stylers: {visibility: 'simplified'}
@@ -148,6 +150,8 @@ function initialize() {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
 			map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+			x=position.coords.latitude;
+			y=position.coords.longitude;
 		}, function() {
 			handleNoGeolocation(true);
 		});
