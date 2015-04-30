@@ -142,6 +142,8 @@ function initialize() {
 			}
 		]
 	}
+
+	map = new google.maps.Map(document.getElementById('map-canvas'), mapOpts);
 	
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function(position) {
@@ -153,8 +155,6 @@ function initialize() {
 		// Browser doesn't support Geolocation
 		handleNoGeolocation(false);
 	}
-  
-	map = new google.maps.Map(document.getElementById('map-canvas'), mapOpts);
 
 	infoWindow = new google.maps.InfoWindow();
 	service = new google.maps.places.PlacesService(map);
