@@ -113,16 +113,17 @@ function startGame () {
 }
 
 var map;
+var mapOpts;
 var infoWindow;
 var service;
 var diff;
 var str = "";
 
 function initialize() {
-  map = new google.maps.Map(document.getElementById('map-canvas'), {
-    zoom: 16,
-    center: new google.maps.LatLng(41.6564208,-91.5332455),
-	styles : [
+	mapOpts = {
+		zoom: 16,
+		center: new google.maps.LatLng(41.6564208,-91.5332455),
+		styles : [
 			{
 				stylers: {visibility: 'simplified'}
 			},
@@ -140,10 +141,31 @@ function initialize() {
 				]
 			}
 		]
-  });
+	}
+	
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+		mapOpts.center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		}, function() {
+			handleNoGeolocation(true);
+		});
+	} else {
+    // Browser doesn't support Geolocation
+		handleNoGeolocation(false);
+	}
+  
+	map = new google.maps.Map(document.getElementById('map-canvas'), mapOpts);
 
-  infoWindow = new google.maps.InfoWindow();
-  service = new google.maps.places.PlacesService(map);
+	infoWindow = new google.maps.InfoWindow();
+	service = new google.maps.places.PlacesService(map);
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
 }
 
 function performSearch() {
